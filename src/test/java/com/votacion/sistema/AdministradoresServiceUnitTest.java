@@ -29,14 +29,23 @@ public class AdministradoresServiceUnitTest {
         admin.setUsuario("prueba1");
         admin.setContrasena("contra1");
 
+        Administradores admin2 = new Administradores();
+        admin2.setId(2);
+        admin2.setUsuario("Prueba2");
+        admin2.setContrasena("pruebaaaa2");
+
         // Crea una instancia de admin
         administradoresRepository.save(admin);
 
         // Obtiene una lista de los administradores
         List<Administradores> list = administradoresService.list();
+        for (Administradores a:
+             list) {
+            System.out.println(a.toString());
+        }
 
         // Evalua que se haya creado una instancia de administrador
-        Assert.assertEquals(list.size(), 1);
+        Assert.assertEquals(list.size(), 2);
     }
 
     @Test
@@ -50,6 +59,8 @@ public class AdministradoresServiceUnitTest {
         // Usa el mismo metodo ya que internamente evalua si el id ya existe
         // Si es asi, corre un update en sql
         administradoresRepository.save(admin);
+
+        System.out.println(administradoresRepository.findById(2));
 
         // Evalua que se haya actualizado una instancia de administrador
         Assert.assertEquals(list.size(), 1);

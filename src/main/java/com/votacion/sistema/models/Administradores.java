@@ -1,19 +1,19 @@
 package com.votacion.sistema.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "administradores")
 public class Administradores {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String usuario;
 
     private String contrasena;
 
+    // Metodos
     public String getContrasena() {
         return contrasena;
     }
@@ -36,5 +36,10 @@ public class Administradores {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return this.usuario;
     }
 }
