@@ -69,12 +69,11 @@ public class AdministradoresServiceUnitTest {
     @Test
     public void deleteAdmin() {
         // Obtiene una lista de los administradores
-        List<Administradores> list = administradoresService.list();
-        Administradores admin = list.get(0); // Obtiene el primer administrador
+//        List<Administradores> list = administradoresService.list();
 
         // Elimina el registro segun instancia
         // Tambien se puede eliminar por id
-        administradoresRepository.delete(admin);
+        administradoresRepository.deleteAll();
 
         Assert.assertEquals(
                 administradoresRepository.count(),

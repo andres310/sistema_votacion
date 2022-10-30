@@ -1,7 +1,7 @@
 package com.votacion.sistema.repositories;
 
 import com.votacion.sistema.models.Administradores;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface administradoresRepository extends CrudRepository<Administradores, Integer> {
+public interface administradoresRepository extends JpaRepository<Administradores, Integer> {
 }
